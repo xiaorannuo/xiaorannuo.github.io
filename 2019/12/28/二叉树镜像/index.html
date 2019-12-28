@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="链表," />
+  <meta name="keywords" content="二叉树," />
 
 
 
@@ -79,16 +79,16 @@
 
 
 
-<meta name="description" content="输入一个链表，输出该链表中倒数第k个结点。https:&#x2F;&#x2F;www.nowcoder.com&#x2F;practice&#x2F;529d3ae5a407492994ad2a246518148a?tpId&#x3D;13&amp;tqId&#x3D;11167&amp;rp&#x3D;1&amp;ru&#x3D;&#x2F;ta&#x2F;coding-interviews&amp;qru&#x3D;&#x2F;ta&#x2F;coding-interviews&#x2F;question-ranking 细节问题">
+<meta name="description" content="题目描述操作给定的二叉树，将其变换为源二叉树的镜像。输入描述:二叉树的镜像定义：源二叉树  1234567891011       8   &#x2F;  \  6   10 &#x2F; \  &#x2F; \5  7 9 11镜像二叉树    8   &#x2F;  \  10   6 &#x2F; \  &#x2F; \11 9 7  5 思路：先镜像两个子结点，然后递归镜像 1234567">
 <meta property="og:type" content="article">
-<meta property="og:title" content="剑指offer 倒数第k个结点">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;24&#x2F;%E9%93%BE%E8%A1%A8%E4%B8%AD%E5%80%92%E6%95%B0%E7%AC%ACk%E4%B8%AA%E7%BB%93%E7%82%B9&#x2F;index.html">
+<meta property="og:title" content="剑指offer 二叉树镜像">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;28&#x2F;%E4%BA%8C%E5%8F%89%E6%A0%91%E9%95%9C%E5%83%8F&#x2F;index.html">
 <meta property="og:site_name" content="gzlBlog">
-<meta property="og:description" content="输入一个链表，输出该链表中倒数第k个结点。https:&#x2F;&#x2F;www.nowcoder.com&#x2F;practice&#x2F;529d3ae5a407492994ad2a246518148a?tpId&#x3D;13&amp;tqId&#x3D;11167&amp;rp&#x3D;1&amp;ru&#x3D;&#x2F;ta&#x2F;coding-interviews&amp;qru&#x3D;&#x2F;ta&#x2F;coding-interviews&#x2F;question-ranking 细节问题">
-<meta property="article:published_time" content="2019-12-24T14:41:10.000Z">
-<meta property="article:modified_time" content="2019-12-24T14:40:59.293Z">
+<meta property="og:description" content="题目描述操作给定的二叉树，将其变换为源二叉树的镜像。输入描述:二叉树的镜像定义：源二叉树  1234567891011       8   &#x2F;  \  6   10 &#x2F; \  &#x2F; \5  7 9 11镜像二叉树    8   &#x2F;  \  10   6 &#x2F; \  &#x2F; \11 9 7  5 思路：先镜像两个子结点，然后递归镜像 1234567">
+<meta property="article:published_time" content="2019-12-28T15:52:10.000Z">
+<meta property="article:modified_time" content="2019-12-28T15:52:24.349Z">
 <meta property="article:author" content="guanzhilin">
-<meta property="article:tag" content="链表">
+<meta property="article:tag" content="二叉树">
 <meta name="twitter:card" content="summary">
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/12/24/链表中倒数第k个结点/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/12/28/二叉树镜像/"/>
 
 
 
 
 
-  <title>剑指offer 倒数第k个结点 | gzlBlog</title>
+  <title>剑指offer 二叉树镜像 | gzlBlog</title>
   
 
 
@@ -252,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/24/%E9%93%BE%E8%A1%A8%E4%B8%AD%E5%80%92%E6%95%B0%E7%AC%ACk%E4%B8%AA%E7%BB%93%E7%82%B9/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%95%9C%E5%83%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="guanzhilin">
@@ -269,7 +269,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">剑指offer 倒数第k个结点</h1>
+          <h1 class="post-title" itemprop="name headline">剑指offer 二叉树镜像</h1>
         
 
         <div class="post-meta">
@@ -281,8 +281,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-24T22:41:10+08:00">
-                2019-12-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-28T23:52:10+08:00">
+                2019-12-28
               </time>
             
 
@@ -341,8 +341,10 @@
       
 
       
-        <p>输入一个链表，输出该链表中倒数第k个结点。<br><a href="https://note.youdao.com/" target="_blank" rel="noopener">https://www.nowcoder.com/practice/529d3ae5a407492994ad2a246518148a?tpId=13&amp;tqId=11167&amp;rp=1&amp;ru=/ta/coding-interviews&amp;qru=/ta/coding-interviews/question-ranking</a></p>
-<h2 id="细节问题，再写一遍试试，注意这个h"><a href="#细节问题，再写一遍试试，注意这个h" class="headerlink" title="细节问题，再写一遍试试，注意这个h"></a>细节问题，再写一遍试试，注意这个h</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">FindKthToTail</span><span class="params">(ListNode head,<span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        ListNode h = head;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;k;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(h==<span class="keyword">null</span>)</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">            h = h.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(h!=<span class="keyword">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            head = head.next;</span><br><span class="line">            h = h.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>题目描述<br>操作给定的二叉树，将其变换为源二叉树的镜像。<br>输入描述:<br>二叉树的镜像定义：源二叉树 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">       8</span><br><span class="line">   &#x2F;  \</span><br><span class="line">  6   10</span><br><span class="line"> &#x2F; \  &#x2F; \</span><br><span class="line">5  7 9 11</span><br><span class="line">镜像二叉树</span><br><span class="line">    8</span><br><span class="line">   &#x2F;  \</span><br><span class="line">  10   6</span><br><span class="line"> &#x2F; \  &#x2F; \</span><br><span class="line">11 9 7  5</span><br></pre></td></tr></table></figure>
+<p>思路：先镜像两个子结点，然后递归镜像</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">public class TreeNode &#123;</span></span><br><span class="line"><span class="comment">    int val = 0;</span></span><br><span class="line"><span class="comment">    TreeNode left = null;</span></span><br><span class="line"><span class="comment">    TreeNode right = null;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    public TreeNode(int val) &#123;</span></span><br><span class="line"><span class="comment">        this.val = val;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Mirror</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root==<span class="keyword">null</span>)<span class="keyword">return</span> ;</span><br><span class="line">        TreeNode temp = root.left;</span><br><span class="line">        root.left = root.right;</span><br><span class="line">        root.right = temp;</span><br><span class="line">        <span class="keyword">if</span>(root.left!=<span class="keyword">null</span>)</span><br><span class="line">            Mirror(root.left);</span><br><span class="line">        <span class="keyword">if</span>(root.right!=<span class="keyword">null</span>)</span><br><span class="line">            Mirror(root.right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -360,7 +362,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/%E9%93%BE%E8%A1%A8/" rel="tag"># 链表</a>
+            <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" rel="tag"># 二叉树</a>
           
         </div>
       
@@ -373,8 +375,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/12/19/%E5%8F%8D%E5%B0%84/" rel="next" title="反射">
-                <i class="fa fa-chevron-left"></i> 反射
+              <a href="/2019/12/28/%E6%A0%91%E7%9A%84%E5%AD%90%E7%BB%93%E6%9E%84/" rel="next" title="剑指offer 树的子结构">
+                <i class="fa fa-chevron-left"></i> 剑指offer 树的子结构
               </a>
             
           </div>
@@ -382,10 +384,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/12/25/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/" rel="prev" title="剑指offer 反转链表">
-                剑指offer 反转链表 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -437,17 +435,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -507,22 +496,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#细节问题，再写一遍试试，注意这个h"><span class="nav-number">1.</span> <span class="nav-text">细节问题，再写一遍试试，注意这个h</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
