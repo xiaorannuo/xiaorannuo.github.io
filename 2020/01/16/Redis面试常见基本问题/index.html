@@ -79,12 +79,12 @@
 
 
 
-<meta name="description" content="1.基础1.1 什么是Redis？Redis的全称是：Remote Dictionary Server，本质上是一个 Key-Value 类型的内存数据库。 整个数据库统统加载在内存当中进行操作，定期通过异步操作把数据库数据保存在硬盘。因为是纯内存操作，Redis 的性能非常出色。 1.2 Redis的优劣势？优势：  纯内存读写操作，性能好。 支持多种数据结构。 单线程，不用担心竞争 特性丰富，">
+<meta name="description" content="Redis面试连环问，快看看你能走到哪一步！https:&#x2F;&#x2F;mp.weixin.qq.com&#x2F;s?__biz&#x3D;MzI5MzYzMDAwNw&#x3D;&#x3D;&amp;mid&#x3D;2247487975&amp;idx&#x3D;2&amp;sn&#x3D;c6d1fa7cd58e794970c1b159941b168b&amp;chksm&#x3D;ec6e68bfdb19e1a90c874fae412e5f71eda47d1d87c04def7">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Redis面试常见基本问题">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;16&#x2F;Redis%E9%9D%A2%E8%AF%95%E5%B8%B8%E8%A7%81%E5%9F%BA%E6%9C%AC%E9%97%AE%E9%A2%98&#x2F;index.html">
 <meta property="og:site_name" content="gzlBlog">
-<meta property="og:description" content="1.基础1.1 什么是Redis？Redis的全称是：Remote Dictionary Server，本质上是一个 Key-Value 类型的内存数据库。 整个数据库统统加载在内存当中进行操作，定期通过异步操作把数据库数据保存在硬盘。因为是纯内存操作，Redis 的性能非常出色。 1.2 Redis的优劣势？优势：  纯内存读写操作，性能好。 支持多种数据结构。 单线程，不用担心竞争 特性丰富，">
+<meta property="og:description" content="Redis面试连环问，快看看你能走到哪一步！https:&#x2F;&#x2F;mp.weixin.qq.com&#x2F;s?__biz&#x3D;MzI5MzYzMDAwNw&#x3D;&#x3D;&amp;mid&#x3D;2247487975&amp;idx&#x3D;2&amp;sn&#x3D;c6d1fa7cd58e794970c1b159941b168b&amp;chksm&#x3D;ec6e68bfdb19e1a90c874fae412e5f71eda47d1d87c04def7">
 <meta property="og:image" content="https:&#x2F;&#x2F;uk-1259555870.cos.eu-frankfurt.myqcloud.com&#x2F;20200113150533.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;uk-1259555870.cos.eu-frankfurt.myqcloud.com&#x2F;20200113152209.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;uk-1259555870.cos.eu-frankfurt.myqcloud.com&#x2F;20200113154703.png">
@@ -94,7 +94,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;uk-1259555870.cos.eu-frankfurt.myqcloud.com&#x2F;20200112133931.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;uk-1259555870.cos.eu-frankfurt.myqcloud.com&#x2F;20200112105535.png">
 <meta property="article:published_time" content="2020-01-16T08:11:46.000Z">
-<meta property="article:modified_time" content="2020-01-17T03:11:37.169Z">
+<meta property="article:modified_time" content="2020-01-18T08:34:53.820Z">
 <meta property="article:author" content="guanzhilin">
 <meta property="article:tag" content="Redis">
 <meta name="twitter:card" content="summary">
@@ -350,7 +350,8 @@
       
 
       
-        <h1 id="1-基础"><a href="#1-基础" class="headerlink" title="1.基础"></a>1.基础</h1><h2 id="1-1-什么是Redis？"><a href="#1-1-什么是Redis？" class="headerlink" title="1.1 什么是Redis？"></a>1.1 什么是Redis？</h2><p>Redis的全称是：Remote Dictionary Server，本质上是一个 Key-Value 类型的内存数据库。</p>
+        <p>Redis面试连环问，快看看你能走到哪一步！<a href="">https://mp.weixin.qq.com/s?__biz=MzI5MzYzMDAwNw==&amp;mid=2247487975&amp;idx=2&amp;sn=c6d1fa7cd58e794970c1b159941b168b&amp;chksm=ec6e68bfdb19e1a90c874fae412e5f71eda47d1d87c04def72b3276b19bee82abbfe84c03cce&amp;mpshare=1&amp;scene=1&amp;srcid=&amp;sharer_sharetime=1578816345728&amp;sharer_shareid=9da6362db545da33fbe4e3754a8026c7#rd</a></p>
+<h1 id="1-基础"><a href="#1-基础" class="headerlink" title="1.基础"></a>1.基础</h1><h2 id="1-1-什么是Redis？"><a href="#1-1-什么是Redis？" class="headerlink" title="1.1 什么是Redis？"></a>1.1 什么是Redis？</h2><p>Redis的全称是：Remote Dictionary Server，本质上是一个 Key-Value 类型的内存数据库。</p>
 <p>整个数据库统统<strong>加载在内存</strong>当中进行操作，定期通过异步操作把数据库数据保存在硬盘。因为是纯内存操作，Redis 的性能非常出色。</p>
 <h2 id="1-2-Redis的优劣势？"><a href="#1-2-Redis的优劣势？" class="headerlink" title="1.2 Redis的优劣势？"></a>1.2 Redis的优劣势？</h2><p>优势：</p>
 <ul>
@@ -409,7 +410,7 @@
 <li>当我们从数据库找不到的时候，我们也将这个<strong>空对象设置到缓存里边去</strong>。下次再请求的时候，就可以从缓存里边获取了。这种情况我们一般会将空对象设置一个<strong>较短的过期时间</strong></li>
 </ul>
 <p>布隆过滤器的原理解释<a href="https://www.cnblogs.com/rinack/p/9712477.html" target="_blank" rel="noopener">https://www.cnblogs.com/rinack/p/9712477.html</a></p>
-<h2 id="2-5-如何解决缓存与数据库双写不一致？"><a href="#2-5-如何解决缓存与数据库双写不一致？" class="headerlink" title="2.5 如何解决缓存与数据库双写不一致？"></a>2.5 如何解决缓存与数据库双写不一致？</h2><p><a href="https://blog.csdn.net/sun_qiangwei/article/details/80095980" target="_blank" rel="noopener">https://blog.csdn.net/sun_qiangwei/article/details/80095980</a></p>
+<h2 id="2-5-如何解决缓存与数据库双写不一致？"><a href="#2-5-如何解决缓存与数据库双写不一致？" class="headerlink" title="2.5 如何解决缓存与数据库双写不一致？"></a>2.5 如何解决缓存与数据库双写不一致？</h2><p><a href="https://www.cnblogs.com/rjzheng/p/9041659.html" target="_blank" rel="noopener">https://www.cnblogs.com/rjzheng/p/9041659.html</a></p>
 <p>在写更新数据时，我们要进行两步操作：<strong>删除缓存</strong>和<strong>更新数据库</strong>（一般不使用更新缓存，都是直接删除），现在的问题就是：这两步先做哪一个？</p>
 <ol>
 <li>先更新数据库，再删除缓存</li>
@@ -696,8 +697,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/01/04/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%85%A8%E6%8E%92%E5%88%97/" rel="next" title="剑指offer 字符串的全排列">
-                <i class="fa fa-chevron-left"></i> 剑指offer 字符串的全排列
+              <a href="/2020/01/16/BIO-NIO-AIO/" rel="next" title="BIO-NIO——AIO">
+                <i class="fa fa-chevron-left"></i> BIO-NIO——AIO
               </a>
             
           </div>
@@ -705,6 +706,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/01/18/select%E3%80%81poll%E3%80%81epoll%E4%B9%8B%E9%97%B4%E7%9A%84%E5%8C%BA%E5%88%AB%E6%80%BB%E7%BB%93/" rel="prev" title="BIO-NIO——AIO">
+                BIO-NIO——AIO <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -781,7 +786,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -792,7 +797,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -803,7 +808,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
