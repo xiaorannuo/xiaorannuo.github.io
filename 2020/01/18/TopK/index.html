@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="TopK," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1. 问题描述TopK Elements 问题用于找出一组数中最大的 K 个的数。  此外还有一种叫 Kth Element 问题，用于找出一组数中第 K 大的数。  其实要求解 TopK Elements，可以先求解 Kth Element，因为找到  Kth Element 之后，再遍历一遍，大于等于 Kth Element 的数都是 TopK Elements。 2. 一般解法以 Le">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TopK问题">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;18&#x2F;TopK&#x2F;index.html">
+<meta property="og:site_name" content="gzlBlog">
+<meta property="og:description" content="1. 问题描述TopK Elements 问题用于找出一组数中最大的 K 个的数。  此外还有一种叫 Kth Element 问题，用于找出一组数中第 K 大的数。  其实要求解 TopK Elements，可以先求解 Kth Element，因为找到  Kth Element 之后，再遍历一遍，大于等于 Kth Element 的数都是 TopK Elements。 2. 一般解法以 Le">
+<meta property="og:image" content="https:&#x2F;&#x2F;diycode.b0.upaiyun.com&#x2F;photo&#x2F;2019&#x2F;e96d0bc52e3a0b38fc5f3976ca78e6b3.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;diycode.b0.upaiyun.com&#x2F;photo&#x2F;2019&#x2F;54a40d9e1d1d4e058d2e633de10523eb.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;diycode.b0.upaiyun.com&#x2F;photo&#x2F;2019&#x2F;9b146e139d04105c8aeda8dce65dcf6f.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;diycode.b0.upaiyun.com&#x2F;photo&#x2F;2019&#x2F;0a94de372b0d665417844751e00c24c3.gif">
+<meta property="og:image" content="https:&#x2F;&#x2F;diycode.b0.upaiyun.com&#x2F;photo&#x2F;2019&#x2F;ed3d9d4116c85d555b2b00cdd35c223a.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;diycode.b0.upaiyun.com&#x2F;photo&#x2F;2019&#x2F;e50b2538722fa4dde6f91b7ece4db0e7.png">
+<meta property="article:published_time" content="2020-01-18T08:11:46.000Z">
+<meta property="article:modified_time" content="2020-01-18T15:35:57.047Z">
+<meta property="article:author" content="guanzhilin">
+<meta property="article:tag" content="TopK">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;diycode.b0.upaiyun.com&#x2F;photo&#x2F;2019&#x2F;e96d0bc52e3a0b38fc5f3976ca78e6b3.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/01/18/TopK/"/>
+
+
+
+
+
+  <title>TopK问题 | gzlBlog</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.1.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">gzlBlog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/18/TopK/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="guanzhilin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gzlBlog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">TopK问题</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-18T16:11:46+08:00">
+                2020-01-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <link rel="stylesheet" type="text/css" href="https://cyc2018.github.io/Resources/xiaozhuanlan.css"> 
+
+<h1 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1. 问题描述"></a>1. 问题描述</h1><p>TopK Elements 问题用于找出一组数中最大的 K 个的数。</p>
+<p><img src="https://diycode.b0.upaiyun.com/photo/2019/e96d0bc52e3a0b38fc5f3976ca78e6b3.png" alt=""></p>
+<p>此外还有一种叫 Kth Element 问题，用于找出一组数中第 K 大的数。</p>
+<p><img src="https://diycode.b0.upaiyun.com/photo/2019/54a40d9e1d1d4e058d2e633de10523eb.png" alt=""></p>
+<p>其实要求解 TopK Elements，可以先求解 Kth Element，因为找到  Kth Element 之后，再遍历一遍，大于等于 Kth Element 的数都是 TopK Elements。</p>
+<h1 id="2-一般解法"><a href="#2-一般解法" class="headerlink" title="2. 一般解法"></a>2. 一般解法</h1><p>以 <a href="https://leetcode.com/problems/kth-largest-element-in-an-array/description/" target="_blank" rel="noopener">Leetcode : 215. Kth Largest Element in an Array</a> 为例，这是一道的 Kth Element 问题，不过这道题要找的是从后往前第 K 个元素，而不是从前往后。为了能和传统的 Kth Element 问题一样求解，可以先执行 <code>k = nums.length - k;</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: [3,2,1,5,6,4] and k &#x3D; 2</span><br><span class="line">Output: 5</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-1-快速选择"><a href="#2-1-快速选择" class="headerlink" title="2.1 快速选择"></a>2.1 快速选择</h2><p>快速排序的 partition() 方法，对于数组 nums 的 [l, h] 区间，会返回一个整数 k 使得 nums[l..k-1] 小于等于 nums[k]，且 nums[k+1..h] 大于等于 nums[k]，此时 nums[k] 就是数组的第 k 大元素。可以利用这个特性找出数组的 Kth Element，这种找 Kth Element 的算法称为快速选择算法。</p>
+<ul>
+<li>时间复杂度 O(N)、空间复杂度 O(1)</li>
+<li>只有当允许修改数组元素时才可以使用</li>
+</ul>
+<p><img src="https://diycode.b0.upaiyun.com/photo/2019/9b146e139d04105c8aeda8dce65dcf6f.png" alt=""></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findKthElement</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">    k = nums.length - k;</span><br><span class="line">    <span class="keyword">int</span> l = <span class="number">0</span>, h = nums.length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (l &lt; h) &#123;</span><br><span class="line">        <span class="keyword">int</span> j = partition(nums, l, h);</span><br><span class="line">        <span class="keyword">if</span> (j == k) &#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (j &lt; k) &#123;</span><br><span class="line">            l = j + <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            h = j - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> nums[k];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">partition</span><span class="params">(<span class="keyword">int</span>[] a, <span class="keyword">int</span> l, <span class="keyword">int</span> h)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = l, j = h + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">        <span class="keyword">while</span> (a[++i] &lt; a[l] &amp;&amp; i &lt; h) ;</span><br><span class="line">        <span class="keyword">while</span> (a[--j] &gt; a[l] &amp;&amp; j &gt; l) ;</span><br><span class="line">        <span class="keyword">if</span> (i &gt;= j) &#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        swap(a, i, j);</span><br><span class="line">    &#125;</span><br><span class="line">    swap(a, l, j);</span><br><span class="line">    <span class="keyword">return</span> j;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] a, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t = a[i];</span><br><span class="line">    a[i] = a[j];</span><br><span class="line">    a[j] = t;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-2-堆"><a href="#2-2-堆" class="headerlink" title="2.2 堆"></a>2.2 堆</h2><p>维护一个大小为 K 的最小堆，堆顶元素就是 Kth Element。</p>
+<p>使用大顶堆来维护最小堆，而不能直接创建一个小顶堆并设置一个大小，企图让小顶堆中的元素都是最小元素。</p>
+<p>维护一个大小为 K 的最小堆过程如下：在添加一个元素之后，如果大顶堆的大小大于 K，那么需要将大顶堆的堆顶元素去除。</p>
+<ul>
+<li>时间复杂度 O(NlogK) 、空间复杂度 O(K)</li>
+<li>特别适合处理海量数据</li>
+</ul>
+<p><img src="https://diycode.b0.upaiyun.com/photo/2019/0a94de372b0d665417844751e00c24c3.gif" alt=""></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findKthLargest</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">    k = nums.length - k + <span class="number">1</span>;</span><br><span class="line">    PriorityQueue&lt;Integer&gt; pq = <span class="keyword">new</span> PriorityQueue&lt;&gt;(Comparator.reverseOrder()); <span class="comment">// 大顶堆</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> val : nums) &#123;</span><br><span class="line">        pq.add(val);</span><br><span class="line">        <span class="keyword">if</span> (pq.size() &gt; k)  <span class="comment">// 维护堆的大小为 K</span></span><br><span class="line">            pq.poll();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> pq.peek();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="3-海量数据"><a href="#3-海量数据" class="headerlink" title="3. 海量数据"></a>3. 海量数据</h1><p>在这种场景下，单机通常不能存放下所有数据。</p>
+<ul>
+<li>拆分，可以按照哈希取模方式拆分到多台机器上，并在每个机器上维护最大堆；</li>
+<li>整合，将每台机器得到的最大堆合并成最终的最大堆。</li>
+</ul>
+<h1 id="4-频率统计"><a href="#4-频率统计" class="headerlink" title="4. 频率统计"></a>4. 频率统计</h1><p>Heavy Hitters 问题要求找出一个数据流的最频繁出现的 K 个数，比如热门搜索词汇等。</p>
+<h2 id="4-1-HashMap"><a href="#4-1-HashMap" class="headerlink" title="4.1 HashMap"></a>4.1 HashMap</h2><p>使用 HashMap 进行频率统计，然后使用快速选择或者堆的方式找出频率 TopK。在海量数据场景下，也是使用先拆分再整合的方式来解决空间问题。</p>
+<h2 id="4-2-Count-Min-Sketch"><a href="#4-2-Count-Min-Sketch" class="headerlink" title="4.2 Count-Min Sketch"></a>4.2 Count-Min Sketch</h2><p>维护 d*w 大小的二维统计数组，其中 d 是哈希函数的个数，w 根据情况而定。</p>
+<ul>
+<li>在一个数到来时，计算 d 个哈希值，然后分别将哈希值对 w 取模，把对应统计数组上的值加 1；</li>
+<li>要得到一个数的频率，也是要计算 d 个哈希值并取模，得到 d 个频率，取其中最小值。</li>
+</ul>
+<p>该算法的思想和布隆过滤器类似，具有一定的误差，特别是当 w 很小时。但是它能够在单机环境下解决海量数据的频率统计问题。</p>
+<p><img src="https://diycode.b0.upaiyun.com/photo/2019/ed3d9d4116c85d555b2b00cdd35c223a.png" alt=""></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CountMinSketch</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> d;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> w;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">long</span> estimators[][];</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CountMinSketch</span><span class="params">(<span class="keyword">int</span> d, <span class="keyword">int</span> w)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.d = d;</span><br><span class="line">        <span class="keyword">this</span>.w = w;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; d; i++)</span><br><span class="line">            estimators[i][hash(value, i)]++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">estimateFrequency</span><span class="params">(<span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">long</span> minimum = Integer.MAX_VALUE;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; d; i++) &#123;</span><br><span class="line">            minimum = Math.min(minimum, estimators[i][hash(value, i)]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> minimum;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">hash</span><span class="params">(<span class="keyword">int</span> value, <span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>; <span class="comment">// use ith hash function</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-3-Trie"><a href="#4-3-Trie" class="headerlink" title="4.3 Trie"></a>4.3 Trie</h2><p>Trie 树可以用于解决词频统计问题，只要在词汇对应节点保存出现的频率。它很好地适应海量数据场景，因为 Trie 树通常不高，需要的空间不会很大。</p>
+<p><img src="https://diycode.b0.upaiyun.com/photo/2019/e50b2538722fa4dde6f91b7ece4db0e7.png" alt=""></p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a href="https://dirtysalt.github.io/html/probabilistic-data-structures-for-web-analytics-and-data-mining.html" target="_blank" rel="noopener">Probabilistic Data Structures for Web Analytics and Data Mining</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/Trie" target="_blank" rel="noopener">Trie</a></li>
+</ul>
+<h1 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h1><p><a href="https://xiaozhuanlan.com/topic/4176082593" target="_blank" rel="noopener">https://xiaozhuanlan.com/topic/4176082593</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/TopK/" rel="tag"># TopK</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/01/16/Redis%E9%9D%A2%E8%AF%95%E5%B8%B8%E8%A7%81%E5%9F%BA%E6%9C%AC%E9%97%AE%E9%A2%98/" rel="next" title="Redis面试常见基本问题">
+                <i class="fa fa-chevron-left"></i> Redis面试常见基本问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/01/18/%E4%B8%80%E6%96%87%E5%B8%AE%E4%BD%A0%E7%90%86%E6%B8%85%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="prev" title="面试知识点">
+                面试知识点 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">guanzhilin</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-问题描述"><span class="nav-number">1.</span> <span class="nav-text">1. 问题描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-一般解法"><span class="nav-number">2.</span> <span class="nav-text">2. 一般解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-快速选择"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 快速选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-堆"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 堆</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-海量数据"><span class="nav-number">3.</span> <span class="nav-text">3. 海量数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-频率统计"><span class="nav-number">4.</span> <span class="nav-text">4. 频率统计</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-HashMap"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 HashMap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-Count-Min-Sketch"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 Count-Min Sketch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-Trie"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 Trie</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原文链接"><span class="nav-number">6.</span> <span class="nav-text">原文链接</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">guanzhilin</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
